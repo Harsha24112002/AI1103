@@ -1,0 +1,179 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+\singlespacing
+\usepackage[cmex10]{amsmath}
+
+\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+
+\usepackage{longtable}
+\usepackage{multirow}
+
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+
+\DeclareMathOperator*{\Res}{Res}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\begin{document}
+
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\vert#1\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E[ #1 ]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\numberwithin{equation}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\renewcommand{\thefigure}{\theproblem}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 1}
+\author{CS20BTECH11028}
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+Download all python codes from 
+\begin{lstlisting}
+https://github.com/Harsha24112002/AI1103/tree/main/Assignment-1/codes
+\end{lstlisting}
+%
+and latex-tikz codes from 
+%
+\begin{lstlisting}
+    https://github.com/Harsha24112002/AI1103/tree/main/Assignment-1
+\end{lstlisting}
+\section*{Question (2.14)}
+A die is thrown twice and the sum of the numbers appearing is observed to be 6. What is the conditional probability that the number 4 has appeared at least once?.
+\section*{Solution(2.14):}
+Let $A \in \cbrak{2,3,4,5,6,7,8,9,10,11,12}$ be a random variable representing the sum of outcomes when a die is thrown twice.\\
+Let $B \in \cbrak{0,1,2}$  be a random variable that represents the number of times 4 occurs in two throws.\\
+We need the conditional probability of event $\brak{B \geq 1}$ given that \brak{A=6} has occurred.\\ 
+\begin{equation}
+    \Pr{\brak{\brak{B \geq 1}|\brak{A=6}}}
+    =\frac{\Pr{((A=6)\cap(B \geq 1))}}{\Pr{\brak{A=6}}}\label{eq:0.0.1}
+\end{equation}
+We have that,\\
+\begin{equation}
+\Pr{(A=n)}=
+\begin{cases}
+    0 & n \leq 1\\
+    \frac{n-1}{36} & 2\leq n \leq 7\\
+    \frac{13-n}{36} & 8 \leq n \leq 12\\
+    0 & n \geq 13
+\end{cases}
+\end{equation}
+Therefore using equation (0.0.2) we can write that,
+\begin{equation}
+    \Pr{(A=6)}=\frac{5}{36}\label{eq:0.0.3}
+\end{equation}
+From binomial distribution we can write ,
+\begin{align}
+    \Pr{(B \geq 1)}&=\Pr{(B =1)}+\Pr{(B=2)} \\ &= \binom{2}{1} \brak {\frac{1}{6}}\brak {\frac{5}{6}}+\binom{2}{2} \brak {\frac{1}{6}}^2\\
+    &=\frac{11}{36}
+\end{align}
+
+The event $((A=6) \cap (B\geq 1))$ is such that the sum should be six 6 with atleast one 4.\\
+There are only two possible cases \{4,2\},\{2,4\} out of 36 possible cases.\\
+Hence,\\
+\begin{equation}
+    \Pr{((A=6) \cap (B\geq 1))}=\frac{2}{36}.\label{eq:0.0.7}
+\end{equation}
+Substituting equations \eqref{eq:0.0.3},\eqref{eq:0.0.7} in \eqref{eq:0.0.1} , we get\\
+\begin{equation}
+\begin{split}
+\Pr((B \geq 1)|(A=6
+))&=\frac{\frac{2}{36}}{\frac{5}{36}}\\
+&=\frac{2}{5}.
+\end{split}
+\end{equation}
+Hence the probability of occurring atleast one 4 when the sum of the numbers is 6 when a die is thrown twice is $\frac{2}{5}$. 
+
+\end{document}
