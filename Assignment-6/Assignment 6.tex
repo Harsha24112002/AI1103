@@ -145,7 +145,7 @@ Let $X_1,X_2, \cdots$ be i.i.d. $N(0,1)$ random variables.Let $S_{n}=X_{1}^2+X_{
 \end{enumerate}
 \section{Solution}
 \begin{definition}[Almost sure convergence]
-A sequence of random variables $\cbrak{X_n}_{n\in N}$ is said to converge almost surely or with probability 1 (denoted by a.s or w.p 1) to X if
+A sequence of random variables $\cbrak{X_n}_{n\in N}$ is said to converge almost surely or with probability 1 (denoted by a.s or w.p 1) to X if \label{with prob 1}
 \begin{equation}
     \Pr(\omega |X_n(\omega) \to X(\omega))=1
 \end{equation}
@@ -155,7 +155,7 @@ A sequence of random variables $\cbrak{X_n}_{n\in N}$ is said to converge almost
 A sequence of random variables $\cbrak{X_n}_{n\in N}$ is said to converge in probability (denoted by i.p) to X if
 \begin{equation}
     \lim_{n \to \infty} \Pr(\left| X_{n}-X\right|>\epsilon)=0 ,\forall \epsilon>0
-\end{equation}
+\end{equation}\label{in prob}
 \end{definition}
 \begin{theorem}[Weak law of large numbers]
 \label{theorem}
@@ -163,7 +163,7 @@ Let $X_1,X_2,\cdots $ be i.i.d random variables with same expectation($\mu$) and
 \begin{equation}
     \frac{S_n}{n} \xrightarrow{i.p}  \mu,
 \end{equation}
-in probability.
+in probability
 \end{theorem}
 \begin{theorem}[Strong law of large numbers]
 \label{theorem2}
@@ -188,20 +188,8 @@ We can write
 \begin{equation}
     E(X^2)=Var(X) \label{eq:x2}
 \end{equation}
-Given 
-\begin{equation}
-    S_{n}=X_{1}^2+X_{2}^2+\cdots+X_{n}^2.\forall n\geq 1
-\end{equation}
-Hence from theorem \ref{theorem},\ref{theorem2} we can write 
-\begin{align}
-    \frac{S_n}{n} \to Var(X)
-\end{align}
-\begin{equation}
-    \implies \frac{S_n}{n} \to 1
-\end{equation}
-in probability and almost surely.
-Hence \textbf{Option B is false ,Option C is true}
-\begin{align}
+\begin{enumerate}[(A)]
+\item \begin{align}
     E\brak{\frac{S_{n}-n}{\sqrt{2}}}&=E\brak{\frac{\sum_{i}{(X_{i}^{2}-1)}}{\sqrt{2}}}\\
     &={\frac{\sum_{i}E{(X_{i}^{2}-1)}}{\sqrt{2}}}\label{eq:expectation}
 \end{align}
@@ -226,6 +214,41 @@ Hence from theorem \ref{theorem2} as $n \to \infty$
     \brak{\frac{S_{n}-n}{\sqrt{2}}}\sim N(0,n\sqrt{2})
 \end{equation}
 Hence \textbf{Option A is false.}
+
+\item Given 
+\begin{equation}
+    S_{n}=X_{1}^2+X_{2}^2+\cdots+X_{n}^2.\forall n\geq 1
+\end{equation}
+Hence from theorem \ref{theorem} we can write 
+\begin{align}
+    \frac{S_n}{n} \xrightarrow{i.p} Var(X)
+\end{align}
+\begin{equation}
+    \implies \frac{S_n}{n} \xrightarrow{i.p} 1
+\end{equation}
+in probability.From definition \ref{in prob} we can write,
+\begin{equation}
+    \implies \Pr{\brak{\left|\frac{S_n}{n}-1\right|>\epsilon}}\to 0,\forall \epsilon>0
+\end{equation}
+Hence \textbf{Option B is false .}
+\item Given 
+\begin{equation}
+    S_{n}=X_{1}^2+X_{2}^2+\cdots+X_{n}^2.\forall n\geq 1
+\end{equation}
+Hence from theorem \ref{theorem1} we can write 
+\begin{align}
+    \frac{S_n}{n} \xrightarrow{i.p} Var(X)
+\end{align}
+\begin{equation}
+    \implies \frac{S_n}{n} \xrightarrow{a.s} 1
+\end{equation}
+almost surely.From definition \ref{with prob 1} we can write,
+\begin{equation}
+    \frac{S_{n}}{n} \xrightarrow{w.p.1} 1
+\end{equation}
+with probability 1.
+Hence \textbf{Option C is true}.
+\item Consider,
 \begin{equation}
     E\brak{\frac{S_{n}-n}{\sqrt{n}}}=0
 \end{equation}
@@ -244,5 +267,5 @@ using \eqref{eq:var}.From theorem \ref{theorem3} we can write,
 
 Hence using \eqref{eq:D}, \textbf{Option D is false.}
 
-
+\end {enumerate}
 \end{document}
