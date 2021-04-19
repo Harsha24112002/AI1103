@@ -1,0 +1,234 @@
+
+\documentclass{beamer}
+\usepackage{listings}
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\usepackage{amsthm}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\comb}[2]{{}^{#1}\mathrm{C}_{#2}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\{#1\}}}
+\providecommand{\abs}[1]{\vert#1\vert}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[version=4]{mhchem}
+\usetheme{Boadilla}
+\title{UGC/MATH Dec 2018 104}
+\author{Harsha,CS20BTECH11028}
+\institute{IITH}
+\date{\today}
+\begin{document}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}{Question}
+\begin{block}{Problem UGC/MATH Dec 2018 104}
+Let $X_1,X_2, \cdots$ be i.i.d. $N(0,1)$ random variables.Let $S_{n}=X_{1}^2+X_{2}^2+\cdots+X_{n}^2.\forall n\geq 1.$Which of the following statements are correct?
+\begin{enumerate}[(A)]
+\setlength\itemsep{1em}
+\item $\frac{S_{n}-n}{\sqrt{2}}\sim N(0,1)$ for all $n\geq 1$
+\item For all $\epsilon > 0$,$\Pr{\brak{\left|\frac{S_n}{n}-2\right|>\epsilon}}\to 0$ as $n \to \infty$
+\item $\frac{S_{n}}{n} \to 1$ with probability 1
+\item $\Pr({S_{n} \leq n+\sqrt{n}x}) \to \Pr({Y \leq x}) \forall x\in R$ ,where $Y \sim N(0,2)$
+\end{enumerate}
+\end{block}
+\end{frame}
+\begin{frame}{Some definitions}
+\begin{definition}[Almost sure convergence]
+A sequence of random variables $\cbrak{X_n}_{n\in N}$ is said to converge \textbf{almost surely} or \textbf{with probability 1} to X if \label{with prob 1}
+\begin{equation}
+    \Pr(\omega |X_n(\omega) \to X(\omega))=1
+\end{equation}
+\textbf{Notation:}
+\begin{equation}
+X_n \xrightarrow{a.s} X
+\end{equation}
+\end{definition}
+\end{frame}
+\begin{frame}{Some definitions}
+\begin{definition}[Convergence in probability]
+A sequence of random variables $\cbrak{X_n}_{n\in N}$ is said to converge in probability to X if
+\begin{equation}
+    \lim_{n \to \infty} \Pr(\left| X_{n}-X\right|>\epsilon)=0 ,\forall \epsilon>0
+\end{equation}\label{in prob}
+\textbf{Notation:}
+\begin{equation}
+    X_{n} \xrightarrow{i.p} X
+\end{equation}
+\end{definition}
+\end{frame}
+\begin{frame}{Some theorems}
+\begin{theorem}[Central limit theorem]
+\label{theorem3}
+The Central limit theorem states that the distribution of the sample approximates a normal distribution as the sample size becomes larger,given that all the samples are equal in size,regardless of the distribution of the individual samples.
+\end{theorem}
+\begin{theorem}[Weak law of large numbers]
+\label{theorem}
+Let $X_1,X_2,\cdots $ be i.i.d random variables with same expectation($\mu$) and finite variance($\sigma^2$).Let $S_{n}=X_1+X_2+\cdots X_n$,Then as $n \to \infty$
+\begin{equation}
+    \frac{S_n}{n} \xrightarrow{i.p}  \mu,
+\end{equation}
+in probability
+\end{theorem}
+\end{frame}
+\begin{frame}{Some theorems}
+\begin{theorem}[Strong law of large numbers]
+\label{theorem2}
+Let $X_1,X_2,\cdots $ be i.i.d random variables with same expectation($\mu$) and finite variance($\sigma^2$).Let $S_{n}=X_1+X_2+\cdots X_n$,Then as $n \to \infty$
+\begin{equation}
+    \frac{S_n}{n} \xrightarrow{a.s}  \mu,
+\end{equation}
+almost surely.
+\end{theorem}
+\end{frame}
+\begin{frame}{Solution}
+    We know that a random variable following normal distribution with mean $\mu$ and variance $\sigma^2$ is 
+    \begin{equation}
+        f_X(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+    \end{equation}
+    Given $X_1,X_2, \cdots$ follow normal distribution with mean 0 and variance 1.Hence pdf of $X_1,X_2,\cdots$ will be
+\begin{equation}
+    f_{X_i}(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} ,i \in \cbrak{1,2,\cdots}
+\end{equation}
+Since $E(X)$ is 0, We can write
+\begin{align}
+    E(X_i^2)&=Var(X_i),\forall i \in \cbrak{1,2,\cdots}\\
+    &=1\label{eq:x2}
+\end{align}
+\end{frame}
+\begin{frame}{Option A}
+As $X_1,X_2,\cdots $ are i.i.d random variables therefore $X_{1}^2,X_
+{2}^2,\cdots$ are also identical and independent.
+    \begin{align}
+    E\brak{\frac{S_{n}-n}{\sqrt{2}}}&=E\brak{\frac{\sum_{i=1}^{n}{(X_{i}^{2}-1)}}{\sqrt{2}}}\\
+    &={\frac{\sum_{i=1}^{n}E{(X_{i}^{2}-1)}}{\sqrt{2}}}\label{eq:expectation}
+\end{align}
+\begin{align}
+    E(X_i^2-1)&=\int_{-\infty}^{\infty}(x^2-1)f_{X_i}(x)dx\\
+    &=Var(X)-\int_{-\infty}^{\infty}f_{X_i}(x)dx\\
+    &=0\label{eq:0}
+\end{align}
+\begin{equation}
+    \implies E\brak{\frac{S_{n}-n}{\sqrt{2}}}=0
+\end{equation}
+\end{frame}
+\begin{frame}
+Now consider,
+\begin{align}
+    Var\brak{\frac{S_{n}-n}{\sqrt{2}}}&=Var\brak{{\frac{\sum_{i=1}^{n}{(X_{i}^{2}-1)}}{\sqrt{2}}}}\\
+    &={\frac{\sum_{i=1}^{n}Var{(X_{i}^{2}-1)}}{\sqrt{2}}}
+\end{align}
+\begin{align}
+    Var(X_{i}^2-1)&=\int_{-\infty}^{\infty}(x^2-1)^2 f_{X_{i}}(x)dx\\
+    &=\int_{-\infty}^{\infty}(x^4+1-2x^{2}) f_{X_{i}}(x)dx\\
+    &=\int_{-\infty}^{\infty}(x^4)f_{X_{i}}(x)dx +1-2Var(X)\\
+    &=\int_{-\infty}^{\infty}(x^4)\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx -1
+\end{align}
+\end{frame}
+\begin{frame}
+On simplifying we get ,
+\begin{equation}
+    Var(X_{i}^2-1)=2 \label{eq:var}
+\end{equation}
+\begin{align}
+        Var\brak{\frac{S_{n}-n}{\sqrt{2}}}&=n\sqrt{2}    
+\end{align}
+Hence from Central limit theorem as $n \to \infty$
+\begin{equation}
+    \brak{\frac{S_{n}-n}{\sqrt{2}}}\sim N(0,n\sqrt{2})
+\end{equation}
+Hence \textbf{Option A is false.}
+\end{frame}
+\begin{frame}{Option B}
+    Given, 
+\begin{equation}
+    S_{n}=X_{1}^2+X_{2}^2+\cdots+X_{n}^2.\forall n\geq 1
+\end{equation}
+Hence from theorem of Weak law of large numbers we can write 
+\begin{align}
+    \frac{S_n}{n} \xrightarrow{i.p} E(X^2)
+\end{align}
+\begin{equation}
+   \implies  \frac{S_n}{n} \xrightarrow{i.p} Var(X)
+\end{equation}
+\begin{equation}
+    \implies \frac{S_n}{n} \xrightarrow{i.p} 1
+\end{equation}
+From definition of convergence in probability we can write,
+\begin{equation}
+    \implies \Pr{\brak{{\left|\frac{S_n}{n}-1\right|>\epsilon}}}\to 0,\forall \epsilon>0
+\end{equation}
+Hence \textbf{Option B is false .}
+\end{frame}
+\begin{frame}{Option C}
+    Given, 
+\begin{equation}
+    S_{n}=X_{1}^2+X_{2}^2+\cdots+X_{n}^2.\forall n\geq 1
+\end{equation}
+Hence from theorem of Strong law of large numbers we can write 
+\begin{align}
+    \frac{S_n}{n} \xrightarrow{i.p} Var(X)
+\end{align}
+\begin{equation}
+    \implies \frac{S_n}{n} \xrightarrow{a.s} 1
+\end{equation}
+almost surely.From definition of convergence with probability we can write,
+\begin{equation}
+    \frac{S_{n}}{n} \xrightarrow{w.p.1} 1
+\end{equation}
+Hence \textbf{Option C is true}.
+\end{frame}
+\begin{frame}{Option D}
+\begin{align}
+    E\brak{\frac{S_{n}-n}{\sqrt{n}}}&=E\brak{\frac{\sum_{i=1}^{n}{(X_{i}^{2}-1)}}{\sqrt{n}}}\\
+    &={\frac{\sum_{i=1}^{n}E{(X_{i}^{2}-1)}}{\sqrt{n}}}
+\end{align}
+From \eqref{eq:0},
+\begin{equation}
+    E\brak{\frac{S_{n}-n}{\sqrt{n}}}=0
+\end{equation}
+\begin{align}
+     Var\brak{\frac{S_{n}-n}{\sqrt{n}}}&=Var\brak{\frac{\sum_{i=1}^{n}(X_i^2-1)}{\sqrt{n}}}\\
+     &=\frac{\sum_{i=1}^{n}Var(X_i^2-1)}{\sqrt{n}}.
+\end{align}
+\end{frame}
+\begin{frame}
+From \eqref{eq:var}.
+\begin{equation}
+    Var\brak{\frac{S_{n}-n}{\sqrt{n}}}=2\sqrt{n}
+\end{equation}
+From Central limit theorem we can write,
+\begin{equation}
+    \brak{{\frac{S_{n}-n}{\sqrt{n}}}} \sim N(0,2 \sqrt{n})\label{eq:D}
+\end{equation}
+\begin{equation}
+     \Pr\brak{S_n \leq n+ \sqrt{n}x}=\Pr\brak{{\frac{S_{n}-n}{\sqrt{n}}}\leq x}
+\end{equation}
+\begin{equation}
+    \Pr\brak{{\frac{S_{n}-n}{\sqrt{n}}}\leq x} \to \Pr(Y \leq x)
+\end{equation}
+where $Y \sim N(0,2\sqrt{n})$ as $n \to \infty$
+Hence \textbf{Option D is false.}
+
+\end{frame}
+\end{document}
